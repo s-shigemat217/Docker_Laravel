@@ -13,12 +13,19 @@
                 <p class="text-lg font-semibold">
                     {{ $post->title }}
                 </p>
-                <div class="flex justify-end">
+                <div class="flex justify-end space-x-2">
                     <a href="{{ route('post.edit', $post) }}">
                         <flux:button variant="primary" class="cursor-pointer">
                             編集
                         </flux:button>
                     </a>
+                    <form method="POST" action="{{ route('post.destroy', $post) }}">
+                        @csrf
+                        @method('DELETE')
+                        <flux:button variant="danger" type="submit" class="cursor-pointer" onclick="return confirm('本当に削除しますか？')">
+                            削除
+                        </flux:button>
+                    </form>
                 </div>
                 <hr class="w-full mt-4">
                 <p class="mt-4 whitespace-pre-line">
