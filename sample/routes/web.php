@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/post/create', [PostController::class, 'create']);
+Route::get('/post/create', [PostController::class, 'create'])->middleware(['auth','admin']);
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
