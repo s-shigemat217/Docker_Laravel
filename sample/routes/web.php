@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/post/create', [PostController::class, 'create'])->middleware(['auth','admin']);
+
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
@@ -40,6 +40,6 @@ Route::middleware(['auth'])->group(function () {
         ->name('two-factor.show');
 });
 
-
+Route::get('/post/create', [PostController::class, 'create']);
 Route::post('post', [PostController::class, 'store'])->name('post.store');
 Route::get('post', [PostController::class, 'index']);
