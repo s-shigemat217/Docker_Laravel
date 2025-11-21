@@ -13,7 +13,14 @@
                 <p class="text-lg font-semibold">
                     {{ $post->title }}
                 </p>
-                <hr class="w-full">
+                <div class="flex justify-end">
+                    <a href="{{ route('post.edit', $post) }}">
+                        <flux:button variant="primary" class="cursor-pointer">
+                            編集
+                        </flux:button>
+                    </a>
+                </div>
+                <hr class="w-full mt-4">
                 <p class="mt-4 whitespace-pre-line">
                     {{ $post->body }}
                 </p>
